@@ -51,6 +51,17 @@ class ExchangeRateManager
 
     protected function getRatesUrl(\DateTime $date)
     {
-        return 'http://open_exchange_rates.org/api/historical/' . $date->format('Y-m-d') . '.json?app_id=' . $this->appId;
+        $now = new \DateTime();
+        if ($date->format('Ymd') > $now->format('Ymd')) {
+            throw new \LogicException('Invalid date');
+        }
+
+        if ($date->format('Ymd') < $now->format('Ymd')) {
+            $method = 'api/historical/' . $date->format('Y-m-d') . '.json';
+        } else {
+            $method = 'api/latest.json';
+        }
+
+        return 'http://openexchangerates.org/' . $method . '?app_id=' . $this->appId;
     }
 }
