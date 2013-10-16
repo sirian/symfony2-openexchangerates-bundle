@@ -28,6 +28,7 @@ class DoctrineORMExchangeRateManager extends ExchangeRateManager
             $em->flush($rate);
         } catch (\Exception $e) {
         }
+        return $rate;
     }
 
 
