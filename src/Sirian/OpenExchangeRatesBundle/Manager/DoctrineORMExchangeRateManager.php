@@ -2,17 +2,13 @@
 
 namespace Sirian\OpenExchangeRatesBundle\Manager;
 
-use Doctrine\Bundle\DoctrineBundle\Registry;
-use Sirian\OpenExchangeRatesBundle\Model\ExchangeRate;
+use Doctrine\Common\Persistence\ManagerRegistry;
 
 class DoctrineORMExchangeRateManager extends ExchangeRateManager
 {
-    /**
-     * @var Registry
-     */
     protected $doctrine;
 
-    public function __construct(Registry $doctrine, $entityClass, $appId)
+    public function __construct(ManagerRegistry $doctrine, $entityClass, $appId)
     {
         $this->doctrine = $doctrine;
         parent::__construct($entityClass, $appId);
