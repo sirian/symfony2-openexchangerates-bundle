@@ -22,9 +22,4 @@ class OpenExchangeRatesExtension extends Extension
         $definition = $container->getDefinition('open_exchange_rates.manager.doctrine_mongodb');
         $definition->addArgument($config['app_id']);
     }
-
-    public function getAlias1()
-    {
-        return 'openexchanerates';
-    }
 }

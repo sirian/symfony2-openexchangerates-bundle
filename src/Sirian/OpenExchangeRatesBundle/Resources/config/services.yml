@@ -8,7 +8,7 @@ services:
     open_exchange_rates.manager.doctrine_mongodb:
         class: Sirian\OpenExchangeRatesBundle\Manager\DoctrineODMExchangeRateManager
         arguments:
-            - @doctrine_mongodb
+            - @?doctrine_mongodb
             - Sirian\OpenExchangeRatesBundle\Document\ExchangeRate
 
     open_exchange_rates.manager: @open_exchange_rates.manager.doctrine
